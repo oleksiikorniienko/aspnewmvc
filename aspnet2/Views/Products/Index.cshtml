@@ -1,0 +1,53 @@
+﻿@model IEnumerable<aspnet2.Models.Product>
+
+@{
+    ViewBag.Title = "Manage products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p>
+    @Html.ActionLink("App new product", "Create")
+</p>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Material</th>
+        <th>Size W</th>
+        <th>Size H</th>
+        <th>In Stock</th>
+        <th>Price (UAH)</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Material.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SizeW)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SizeH)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.InStock)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+    <td>
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </td>
+</tr>
+    }
+</table>

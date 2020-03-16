@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Session["UserId"] != null)
+{
+    <div class="shoping-cart">
+        <p>Count: <span id="products-count">@ViewBag.CartCount</span> Price: <span id="products-price">@ViewBag.CartPrice</span> UAH</p>
+        <a href="Cart/Index">More detailed</a>
+    </div>
+    <hr />
+}
+    <div id="product-container">
+        @foreach (var p in ViewBag.Products)
+        {
+            <div class="product-item">
+                <p>@p.Title</p>
+                <hr />
+                <p>Product info:</p>
+                <p>- Material: @p.Material.Title</p>
+                <p>- Size W: @p.SizeW sm</p>
+                <p>- Size H: @p.SizeH sm</p>
+                <p>- Price: @p.Price UAH</p>
+                @if (Session["UserId"] != null)
+                {
+                    <hr />
+                    <form action="/Cart/Add" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="ProductId" value="@p.Id" />
+                        <input type="number" name="Count" max="@p.InStock" value="1" />
+                        <button type="submit">Add to cart</button>
+                    </form>
+                }
+            </div>
+        }
+    </div>

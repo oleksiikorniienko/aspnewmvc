@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "Create order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model aspnet2.Models.UserInfo
+
+@using (Html.BeginForm("Create", "Order", new { }, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div>
+        @Html.LabelFor(m => m.Name, "Your name")
+        @Html.EditorFor(model => model.Name)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Address, "Your address")
+        @Html.EditorFor(model => model.Address)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Phone, "Your phone")
+        @Html.EditorFor(model => model.Phone)
+    </div>
+    <input type="submit" value="Create" />
+}

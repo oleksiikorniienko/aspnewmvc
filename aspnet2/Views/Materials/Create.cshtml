@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Create matrial";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model aspnet2.Models.Material
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Title, "Title")
+    <br />
+    @Html.EditorFor(model => model.Title)
+    <br />
+    <br />
+    <input type="submit" value="Create" />
+}

@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Order №" + @Model.Id;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model aspnet2.Models.Order
+
+<p>Name: @Model.UserInfo.Name</p>
+<p>Address: @Model.UserInfo.Address</p>
+<p>Phone: @Model.UserInfo.Phone</p>
+<hr/>
+<p>Sum: @Model.Sum UAH</p>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Material</th>
+        <th>Size W</th>
+        <th>Size H</th>
+        <th>Count</th>
+        <th>Total price</th>
+    </tr>
+
+    @foreach (var orderProduct in @ViewBag.OrderProducts)
+    {
+<tr>
+    <td>@orderProduct.Product.Id</td>
+    <td>@orderProduct.Product.Title</td>
+    <td>@orderProduct.Product.Material.Title</td>
+    <td>@orderProduct.Product.SizeW</td>
+    <td>@orderProduct.Product.SizeH</td>
+    <td>@orderProduct.Count</td>
+    <td>@(orderProduct.Count * orderProduct.Price)</td>
+</tr>
+    }
+</table>

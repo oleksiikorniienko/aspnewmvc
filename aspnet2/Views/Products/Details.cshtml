@@ -1,0 +1,14 @@
+﻿@model aspnet2.Models.Product
+
+@{
+    ViewBag.Title = "Edit product №" + @Model.Id;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Товар № @Model.Id</h2>
+<p>Title: @Model.Title</p>
+<p>Material: @Model.Material.Title</p>
+<p>Size W: @Model.SizeW</p>
+<p>Size H: @Model.SizeH</p>
+<p>InStock: @Model.InStock</p>
+<p>Price: @Model.Price UAH</p>

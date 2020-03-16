@@ -1,0 +1,39 @@
+﻿@model aspnet2.Models.Product
+
+@{
+    ViewBag.Title = "Edit product №" + @Model.Id;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "Products", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.Id)
+        <div>
+            @Html.LabelFor(m => m.Title, "Title")
+            @Html.EditorFor(model => model.Title)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.InStock, "InStock")
+            @Html.EditorFor(model => model.InStock)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.SizeW, "SizeW")
+            @Html.EditorFor(model => model.SizeW)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.SizeH, "SizeH")
+            @Html.EditorFor(model => model.SizeH)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Price, "Price")
+            @Html.EditorFor(model => model.Price)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.MaterialId, "Materials")
+            @Html.DropDownListFor(model => model.MaterialId, ViewBag.Materials as SelectList)
+        </div>
+
+        <input type="submit" value="Update" />
+    </fieldset>
+}

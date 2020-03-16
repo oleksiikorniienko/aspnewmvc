@@ -1,0 +1,104 @@
+﻿header {
+    background-color: #BA55D3;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+#content {
+    display: flex;
+    width: 100%;
+}
+
+#content-body {
+    width: 100%;
+}
+
+#content-navigation {
+    width: 200px;
+}
+
+.nav-link {
+    text-align: center;
+}
+
+a {
+    display: inline-block;
+    padding: 3px;
+    margin: 5px;
+    background-color: #EE82EE;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.nav-link a {
+    width: 70%;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: calc(100% - 15px);
+    margin: 15px 5px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #D8BFD8;
+}
+
+form {
+    padding: 15px;
+}
+
+input[type=text], input[type=password], input[type=number], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit], button {
+    width: 100%;
+    background-color: #EE82EE;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #DA70D6;
+}
+
+#product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product-item {
+    width: 300px;
+    background-color: #E6E6FA;
+    margin: 10px;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+.shoping-cart {
+    text-align: center;
+    margin: 15px;
+}
+

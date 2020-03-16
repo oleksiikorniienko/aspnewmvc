@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Material</th>
+        <th>Size W</th>
+        <th>Size H</th>
+        <th>Price (UAH)</th>
+        <th>Count selected</th>
+        <th>Total price</th>
+        <th>Actions</th>
+    </tr>
+
+    @for (var i = 0; i < ViewBag.Products.Count; i++)
+    {
+<tr>
+    <td>
+        @ViewBag.Products[i].Title
+    </td>
+    <td>
+        @ViewBag.Products[i].Material.Title
+    </td>
+    <td>
+        @ViewBag.Products[i].SizeW
+    </td>
+    <td>
+        @ViewBag.Products[i].SizeH
+    </td>
+    <td>
+        @ViewBag.Products[i].Price
+    </td>
+    <td>
+        @ViewBag.CartItems[i].Count
+    </td>
+    <td>
+        @(ViewBag.CartItems[i].Count * @ViewBag.Products[i].Price)
+    </td>
+    <td>
+        <a href="/Cart/Delete/@ViewBag.Products[i].Id" >Delete</a>
+    </td>
+</tr>
+    }
+</table>
+<p>Total price: @ViewBag.CartPrice</p>
+<a href="/Order/Create">Make Order</a>

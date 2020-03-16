@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model aspnet2.Models.LoginView
+
+@using (Html.BeginForm("Login", "Login", new {}, FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div>@Html.ValidationMessageFor(m => m.Email) @Html.TextBoxFor(m => m.Email, new { @placeholder = "Email" })</div>
+
+    <div>@Html.ValidationMessageFor(m => m.Password) @Html.PasswordFor(m => m.Password, new { @placeholder = "Password", @type = "Password" })</div>
+
+    <input type="submit" value="Login" />
+}
